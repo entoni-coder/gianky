@@ -18,8 +18,12 @@ GKY_VALUE_USD = 0.10
 ADMIN_WALLET = os.environ.get('f1cfb261ef4423b9b862c737617c1b498fbce07ffd9416cc47f01e536dec7954')
 
 # Database setup
+# Sostituisci la connessione al DB con questo percorso assoluto
+DB_PATH = os.path.join(os.getcwd(), 'instance', 'gianky_bot.db')
+
 def init_db():
-    with sqlite3.connect('gianky_bot.db') as conn:
+    os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)  # Crea la cartella se non esiste
+    with sqlite3.connect(DB_PATH) as conn:  # Usa il percorso assoluto
         conn.execute('''
             CREATE TABLE IF NOT EXISTS users (
                 user_id INTEGER PRIMARY KEY,
