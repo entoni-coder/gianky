@@ -1,11 +1,18 @@
+import os
 import random
 import sqlite3
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, MessageHandler, Filters, CallbackContext
-
+from telegram.ext import (
+    Updater,
+    CommandHandler,
+    CallbackQueryHandler,
+    MessageHandler,
+    filters,
+    CallbackContext
+)
 # Configurazione
-BOT_TOKEN = 'f1cfb261ef4423b9b862c737617c1b498fbce07ffd9416cc47f01e536dec7954'
-ADMIN_WALLET = '7741434545:AAFMPM1ODtSvArOWwD31OhP_RK_82HekD2E'
+BOT_TOKEN = os.environ.get('f1cfb261ef4423b9b862c737617c1b498fbce07ffd9416cc47f01e536dec7954')
+ADMIN_WALLET = os.environ.get('7741434545:AAFMPM1ODtSvArOWwD31OhP_RK_82HekD2E')
 GKY_VALUE_USD = 0.10  # Valore di 1 GKY in USD
 
 # Inizializzazione database
@@ -158,11 +165,11 @@ if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 8443))
     updater = Updater(BOT_TOKEN)
     
-    # Configurazione webhook
+    # Configurazione webhook per Render
     updater.start_webhook(
         listen="0.0.0.0",
         port=PORT,
         url_path=BOT_TOKEN,
-        webhook_url=f"https://your-render-service-name.onrender.com/{BOT_TOKEN}"
+        webhook_url=f"https://your-service-name.onrender.com/{BOT_TOKEN}"
     )
-    print("Bot avviato correttamente!")
+    print("🤖 Bot avviato correttamente!")
