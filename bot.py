@@ -149,6 +149,20 @@ def main():
     updater.start_polling()
     updater.idle()
 
+import os
+from telegram.ext import Updater
+
+BOT_TOKEN = os.environ.get('BOT_TOKEN')  # Legge dal environment variable di Render
+
 if __name__ == '__main__':
-    print("🚀 Gianky Bot avviato!")
-    main()
+    PORT = int(os.environ.get('PORT', 8443))
+    updater = Updater(BOT_TOKEN)
+    
+    # Configurazione webhook
+    updater.start_webhook(
+        listen="0.0.0.0",
+        port=PORT,
+        url_path=BOT_TOKEN,
+        webhook_url=f"https://your-render-service-name.onrender.com/{BOT_TOKEN}"
+    )
+    print("Bot avviato correttamente!")
