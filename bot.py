@@ -10,9 +10,9 @@ from telegram.ext import (
     filters,
     CallbackContext
 )
-# Configurazione
-BOT_TOKEN = os.environ.get('f1cfb261ef4423b9b862c737617c1b498fbce07ffd9416cc47f01e536dec7954')
-ADMIN_WALLET = os.environ.get('7741434545:AAFMPM1ODtSvArOWwD31OhP_RK_82HekD2E')
+# Configurazione 
+BOT_TOKEN = os.environ.get('7741434545:AAFMPM1ODtSvArOWwD31OhP_RK_82HekD2E')
+ADMIN_WALLET = os.environ.get('f1cfb261ef4423b9b862c737617c1b498fbce07ffd9416cc47f01e536dec7954')
 GKY_VALUE_USD = 0.10  # Valore di 1 GKY in USD
 
 # Inizializzazione database
