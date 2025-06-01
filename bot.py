@@ -162,4 +162,4 @@ if __name__ == '__main__':
         url_path=BOT_TOKEN,
         webhook_url=f"https://your-service.onrender.com/{BOT_TOKEN}"
     )
- print("🤖 Bot avviato correttamente!")
+
